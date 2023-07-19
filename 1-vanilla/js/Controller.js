@@ -1,10 +1,11 @@
 const tag = "[Controller]";
+import SearchFormView from './views/SearchFormView.js';
 
 export default class Controller {
-  constructor(store, views) {
+  constructor(store, {SearchFormView}) {
     console.log(tag);
     this.store = store;
 
-    // TODO
+    this.SearchFormView = SearchFormView;
   }
 }
