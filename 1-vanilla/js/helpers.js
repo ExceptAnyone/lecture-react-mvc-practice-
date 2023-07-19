@@ -7,7 +7,7 @@ export function qs(selector, scope = document) {
 export function qsAll(selector, scope = document) {
   if (!selector) throw "no selector";
 
-  return Array.from(scope.querySelectorAll(selector));
+  return Array.from(scope.querySelectorAll(selector)); //Array.from 주의!!
 }
 
 export function on(target, eventName, handler) {
@@ -25,7 +25,7 @@ export function delegate(target, eventName, selector, handler) {
     }
   };
 
-  on(target, eventName, emitEvent);
+  on(target, eventName, emitEvent); //handler 인자가 emitEvent임
 }
 
 export function emit(target, eventName, detail) {

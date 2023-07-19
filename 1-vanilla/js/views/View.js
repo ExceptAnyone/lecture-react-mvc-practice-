@@ -4,7 +4,7 @@ const tag = "[View]";
 
 export default class View {
   constructor(element) {
-    console.log(tag, "constructor");
+    
 
     if (!element) throw "no element";
 
@@ -24,12 +24,12 @@ export default class View {
     return this;
   }
 
-  on(eventName, handler) {
+  on(eventName, handler) { //헬퍼함수
     on(this.element, eventName, handler);
     return this;
   }
 
-  emit(eventName, data) {
+  emit(eventName, data) { //헬퍼함수
     emit(this.element, eventName, data);
     return this;
   }
