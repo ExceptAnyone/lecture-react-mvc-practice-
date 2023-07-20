@@ -40,7 +40,7 @@ export default class SearchFormView extends View {
     const {value} = this.inputElement;
     this.emit("@submit", {value});
     
-    // console.log(this.emit("@submit", {value}));
+    
   }
 
   handleReset() {
