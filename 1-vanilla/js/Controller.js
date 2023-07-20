@@ -1,12 +1,12 @@
 import SearchFormView from "./views/SearchFormView.js";
 import SearchResultView from "./views/SearchResultView.js";
-import Store from './Store.js';
-import TabView from './views/TabView.js';
+import Store from "./Store.js";
+import TabView from "./views/TabView.js";
 
 const tag = "[Controller]";
 
 export default class Controller {
-  constructor(store, { SearchFormView, searchResultView, tabView, }) {
+  constructor(store, { SearchFormView, searchResultView, tabView }) {
     console.log(tag);
 
     this.store = store;
@@ -19,14 +19,14 @@ export default class Controller {
     this.render();
   }
   subscribeViewEvents() {
-    this.SearchFormView
-    .on("@submit", (event) => this.search(event.detail.value))
-    .on("@reset", () => this.reset());
+    this.SearchFormView.on("@submit", (event) =>
+      this.search(event.detail.value)
+    ).on("@reset", () => this.reset());
   }
   search(searchKeyword) {
-    console.log(tag, "search",searchKeyword);
+    console.log(tag, "search", searchKeyword);
     this.store.search(searchKeyword);
-    this.render()
+    this.render();
   }
 
   reset() {
@@ -37,13 +37,16 @@ export default class Controller {
   }
 
   render() {
-    if(this.store.searchKeyword.length > 0) {
-      this.tabView.hide();
-      this.searchResultView.show(this.store.searchResult)
-      return;
+    if (this.store.searchKeyword.length > 0) {
+      return this.renderSearchResult();
     }
-    
-    this.tabView.show();
+
+    this.tabView.show(this.store.selectedTab);
     this.searchResultView.hide();
+  }
+
+  renderSearchResult() {
+    this.tabView.hide();
+    this.searchResultView.show();
   }
 }
