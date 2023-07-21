@@ -6,12 +6,13 @@ const tag = "[HistoryListView]"
 export default class HistoryListView extends KeywordListView {
   constructor() {
     super(qs("#history-list-view"), new Template());
+    
   }
 
   bindEvent() {
     delegate(this.element, "click", "button.btn-remove", event => this.handleClickRemoveButton(event))
 
-    super.bindEvent();
+    super.bindEvent(); //부모 요소의 li클릭을 위해서 오버라이딩
   }
 
   handleClickRemoveButton(event) {

@@ -6,7 +6,7 @@ const tag = "[KeywordListView]"
 export default class KeywordListView extends View {
   constructor(element = qs("#keyword-list-view"), template = new Template()) {
     super(element);
-
+    console.log(element);
     this.template = template;
     this.bindEvent();
   }
