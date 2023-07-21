@@ -1,13 +1,13 @@
 import { createPastDate } from "./helpers.js";
 
 const storage = {
-  keywordData: [
+  keywordData: [ //추천 검색어
     { id: 1, keyword: "샐러드" },
     { id: 2, keyword: "커리" },
     { id: 3, keyword: "햄버거" },
   ],
 
-  historyData: [
+  historyData: [ //최근 검색어
     { id: 1, keyword: "검색기록1", date: createPastDate(3) },
     { id: 2, keyword: "검색기록2", date: createPastDate(2) },
     { id: 3, keyword: "검색기록3", date: createPastDate(1) },
